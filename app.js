@@ -14,6 +14,26 @@ const productRoutes = require('./routes/product');
 const braintreeRoutes = require('./routes/braintree');
 const orderRoutes = require('./routes/order');
 
+const swaggerJsdoc = require("swagger-jsdoc");
+const swaggerUi = require("swagger-ui-express");
+const options = {
+  
+  apis: ['./routes/*.js'],
+  
+  swaggerDefinition: {
+           info:{
+                 title: 'Eshop Swagger Documentation',
+                 description: 'A api documentation page',
+                 contact: {
+                     name: 'Vrushali Shinde - Student'
+                 },
+                 servers: ["http://localhost:8000"]
+             }
+         },
+};
+const specs = swaggerJsdoc(options);
+
+
 // app
 const app = express();
 
@@ -44,6 +64,12 @@ app.use(cors());
 
 const port = process.env.PORT || 8000;
 
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
+
+
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
+
+
+
