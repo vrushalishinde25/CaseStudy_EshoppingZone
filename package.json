@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon app.js",
-    "test": "jest"
+    "test": "mocha --timeout 10000"
   },
   "keywords": [],
   "author": "Vrushali",
@@ -13,6 +13,8 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "braintree": "^2.24.0",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
@@ -22,19 +24,17 @@
     "formidable": "^1.2.2",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.20",
+    "mocha": "^8.1.3",
     "mongoose": "^5.10.0",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.4",
+    "request": "^2.88.2",
+    "should": "^13.2.3",
     "supertest": "^4.0.2",
     "swagger-jsdoc": "^4.0.0",
     "swagger-ui-express": "^4.1.4",
     "uuid": "^8.3.0",
     "uuidv1": "^1.6.14"
   },
-  "devDependencies": {
-    "jest": "^26.4.2"
-  },
-  "jest": {
-    "testEnvironment": "node"
-  }
+  "devDependencies": {}
 }
